@@ -1,7 +1,7 @@
 #!/bin/bash
 #Script made for SENSU-CLIENT Installtion...
 #Author: Vinod.N K
-#Usage: Sensu-Client, ruby, ruby-gems, sensu-plugins
+#Usage: Sensu-Client, ruby, ruby-gems, sensu-plugins, Whiptail 
 #Distro : Linux -Centos, Rhel, and any fedora
 #Check whether root user is running the script
 
@@ -9,7 +9,8 @@ if [ "$(id -u)" != "0" ]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
-yum install newt -y
+##########START##########
+yum install newt -y # WhipTail Repo
 whiptail --title " SENSU CLIENT INSTALLATION !! " --msgbox "Starting installation of Sensu Client... Choose Ok to continue." 10 60
 echo '[sensu]
 name=sensu
