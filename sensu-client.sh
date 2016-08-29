@@ -38,16 +38,16 @@ sudo wget https://s3-eu-west-1.amazonaws.com/moofwd-devops/sensu-key/client_key.
 
 SENSUIP=$(whiptail --title " SENSU CLIENT INSTALLATION !!" --inputbox "Please Enter IPADDRESS of the Sensu-Server ?" 10 60 IPADDRESS 3>&1 1>&2 2>&3)
 echo "{
-  "rabbitmq": {
-    "ssl": {
-      "cert_chain_file": "/etc/sensu/ssl/client_cert.pem",
-      "private_key_file": "/etc/sensu/ssl/client_key.pem"
+  \"rabbitmq\": {
+    \"ssl\": {
+      \"cert_chain_file\": \"/etc/sensu/ssl/client_cert.pem\",
+      \"private_key_file\": \"/etc/sensu/ssl/client_key.pem\"
     },
-    "host": \"$SENSUIP\",
-    "port": 5671,
-    "vhost": "/sensu",
-    "user": "sensu",
-    "password": "xxx"
+    \"host\": \"$SENSUIP\",
+    \"port\": \"5671\",
+    \"vhost\": \"/sensu\",
+    \"user\": \"sensu\",
+    \"password\": \"xxx\"
   }
 }" >> /etc/sensu/conf.d/rabbitmq.json
 
@@ -63,5 +63,3 @@ echo "{
   }
 }" >>  /etc/sensu/conf.d/client.json
 
-
-sudo service sensu-client start
