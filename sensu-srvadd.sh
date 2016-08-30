@@ -9,12 +9,6 @@ if [ "$(id -u)" != "0" ]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
-
-yum install newt -y
-pip install pymongo -y
-yum install perl* --skip-broken
-yum install perl-Time-HiRes -y
-
 host=$(whiptail --title " MySQL Installation " --inputbox "Please Enter Hostname of Sensu-ClientServer ?" 10 60 sensuclient 3>&1 1>&2 2>&3)
 
 #common Check for all Server...
