@@ -11,6 +11,9 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 yum install newt -y
+pip install pymongo -y
+yum install perl* --skip-broken
+yum install perl-Time-HiRes -y
 
 host=$(whiptail --title " MySQL Installation " --inputbox "Please Enter Hostname of Sensu-ClientServer ?" 10 60 sensuclient 3>&1 1>&2 2>&3)
 
