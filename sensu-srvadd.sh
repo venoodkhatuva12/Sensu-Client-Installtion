@@ -85,6 +85,8 @@ echo "{
         }
 }" >> /etc/sensu/conf.d/checks/$host/Portal_reme_$host.json
 
-sudo service sensu-server restart
-sudo service sensu-api restart
-sudo service uchiwa restart
+sudo redis-cli flushall
+sudo /etc/init.d/rabbitmq-server restart
+sudo /etc/init.d/redis restart
+sudo /etc/init.d/sensu-server restart && sudo /etc/init.d/sensu-api restart 
+sudo /etc/init.d/uchiwa restart
