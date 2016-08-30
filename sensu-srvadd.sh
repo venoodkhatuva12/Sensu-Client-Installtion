@@ -16,10 +16,10 @@ host=$(whiptail --title " MySQL Installation " --inputbox "Please Enter Hostname
 
 #common Check for all Server...
 
-sed -i "s/],/, \"$host\"],/g" /etc/sensu/conf.d/checks/all_checks/check_disk.json
-sed -i "s/],/, \"$host\"],/g" /etc/sensu/conf.d/checks/all_checks/check_load.json
-sed -i "s/],/, \"$host\"],/g" /etc/sensu/conf.d/checks/all_checks/check_memory.json
-sed -i "s/],/, \"$host\"],/g" /etc/sensu/conf.d/checks/all_checks/check_disk_app.json
+sudo sed -i "s/],/, \"$host\"],/g" /etc/sensu/conf.d/checks/all_checks/check_disk.json
+sudo sed -i "s/],/, \"$host\"],/g" /etc/sensu/conf.d/checks/all_checks/check_load.json
+sudo sed -i "s/],/, \"$host\"],/g" /etc/sensu/conf.d/checks/all_checks/check_memory.json
+sudo sed -i "s/],/, \"$host\"],/g" /etc/sensu/conf.d/checks/all_checks/check_disk_app.json
 
 mkdir -p /etc/sensu/conf.d/checks/$host
 
