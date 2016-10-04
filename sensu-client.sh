@@ -30,7 +30,7 @@ gem install sensu-plugin addressable bundler descendants_tracker faraday github_
 
 if (whiptail --title "Test Yes/No Box" --yesno "Do you want to add this User to Sudoer(Yes/No)?" 10 60)
   then
-           sudo sed -i "95 i sensu   ALL=(ALL)       ALL" /etc/sudoers
+           sudo sed -i "95 i sensu   ALL=(ALL)       NOPASSWD: ALL" /etc/sudoers
 else
     exit
 fi
