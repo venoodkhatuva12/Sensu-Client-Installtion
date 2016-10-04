@@ -12,7 +12,7 @@ fi
 # Dependencies
 echo "Installing dependencies..."
 yum install newt -y
-sudo yum install ruby ruby-rdoc ruby-shadow rubygems curl openssl-devel -y
+sudo yum install ruby ruby-rdoc ruby-shadow rubygems curl openssl-devel python-pip -y
 sudo yum install ruby-ri* -y
 pip install pymongo
 yum install perl* --skip-broken -y
