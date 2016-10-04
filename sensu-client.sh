@@ -15,7 +15,7 @@ yum install newt -y
 sudo yum install ruby ruby-rdoc ruby-shadow rubygems curl openssl-devel -y
 sudo yum install ruby-ri* -y
 pip install pymongo
-yum install perl* --skip-broken
+yum install perl* --skip-broken -y
 yum install perl-Time-HiRes -y
 
 whiptail --title " SENSU CLIENT INSTALLATION !! " --msgbox "Starting installation of Sensu Client... Choose Ok to continue." 10 60
