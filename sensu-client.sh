@@ -76,4 +76,6 @@ sudo wget https://s3-eu-west-1.amazonaws.com/plugins.zip
 sudo unzip plugins.zip
 sudo chmod 755 /etc/sensu/plugins
 sudo rm -rf /etc/sensu/plugins.zip
+sudo /etc/init.d/sensu-client restart
+
 echo "Thanx for using Sensu-client"
