@@ -9,12 +9,12 @@ if [ "$(id -u)" != "0" ]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
-# Dependencies 
+# Dependencies
 echo "Installing dependencies..."
 yum install newt -y
 sudo yum install ruby ruby-rdoc ruby-shadow rubygems curl openssl-devel -y
 sudo yum install ruby-ri* -y
-pip install pymongo 
+pip install pymongo
 yum install perl* --skip-broken
 yum install perl-Time-HiRes -y
 
@@ -37,9 +37,10 @@ fi
 mkdir -p /etc/sensu/conf.d
 mkdir -p /etc/sensu/ssl
 
+#SSL key created in Sensu Server copy to Sensu Client.
 cd /etc/sensu/ssl/
-sudo wget https://s3-eu-west-1.amazonaws.com/moofwd-devops/sensu-key/client_cert.pem
-sudo wget https://s3-eu-west-1.amazonaws.com/moofwd-devops/sensu-key/client_key.pem
+sudo wget https://s3-eu-west-1.amazonaws.com/sensu-key/client_cert.pem
+sudo wget https://s3-eu-west-1.amazonaws.com/sensu-key/client_key.pem
 
 
 SENSUIP=$(whiptail --title " SENSU CLIENT INSTALLATION !!" --inputbox "Please Enter IPADDRESS of the Sensu-Server ?" 10 60 IPADDRESS 3>&1 1>&2 2>&3)
@@ -69,3 +70,10 @@ echo "{
   }
 }" >>  /etc/sensu/conf.d/client.json
 
+cd /etc/sensu/
+sudo  rm -rf /etc/sensu/plugins
+sudo wget https://s3-eu-west-1.amazonaws.com/moofwd-devops/plugins.zip
+sudo unzip plugins.zip
+sudo chmod 755 /etc/sensu/plugins
+sudo rm -rf /etc/sensu/plugins.zip
+echo "Thanx for using Sensu-client"
