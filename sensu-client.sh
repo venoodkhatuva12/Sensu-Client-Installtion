@@ -38,10 +38,10 @@ fi
 mkdir -p /etc/sensu/conf.d
 mkdir -p /etc/sensu/ssl
 
-#SSL key created in Sensu Server copy to Sensu Client.
+#I uploaded my SSL key created in Sensu Server copy to AWS S3 for Sensu Client.
 cd /etc/sensu/ssl/
-sudo wget https://s3-eu-west-1.amazonaws.com/sensu-key/client_cert.pem
-sudo wget https://s3-eu-west-1.amazonaws.com/sensu-key/client_key.pem
+sudo wget https://s3-us-west-1.amazonaws.com/sensu-client-key/client_cert.pem
+sudo wget https://s3-us-west-1.amazonaws.com/sensu-client-key/client_key.pem
 
 
 SENSUIP=$(whiptail --title " SENSU CLIENT INSTALLATION !!" --inputbox "Please Enter IPADDRESS of the Sensu-Server ?" 10 60 IPADDRESS 3>&1 1>&2 2>&3)
